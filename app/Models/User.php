@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use App\Actions\Query\UserQuery;
-use App\Actions\Shared\Traits\GetTextPaginations;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Actions\Shared\Traits\GetTextPaginations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -81,7 +82,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->query()
                 ->with($this->listRelationships())
-                ->onlyTrashedIf(request()->routeIs('users.trashed'))
+                ->onlyTrashedIf(request()->routeIs('admin.users.trashed'))
                 ->applyFilters()
                 ->orderByDesc('created_at')
                 ->paginate($request->per_page);
@@ -98,6 +99,32 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->attributes['slug'] = Str::slug($username) . Str::uuid();
     }
 
+    public function setPasswordAttribute($password)
+    {
+        if ($password) {
+            $this->attributes['password']
+                        = Hash::needsRehash($password)
+                        ? Hash::make($password)
+                        : $password;
+        }
+    }
+
+    public function setAvatarAttribute($avatar)
+    {
+        if ($avatar)
+        {
+            Storage::disk('avatars')->delete($this->avatar);
+
+            $fileNameExtension = $avatar->getClientOriginalName();
+            $fileName = pathinfo($fileNameExtension, PATHINFO_FILENAME);
+            $extension = $avatar->getClientOriginalExtension();
+            $fileNameToStore = $fileName.'_'. uniqid($this->id) .'_'.time().'.'.$extension;
+            $path = $avatar->storeAs('public/avatars', $fileNameToStore);
+
+            $this->attributes['avatar'] = $fileNameToStore;
+        }
+    }
+
     public function getAvatarPathAttribute()
     {
         if ($this->avatar) {
@@ -105,5 +132,20 @@ class User extends Authenticatable implements MustVerifyEmail
         }
 
         return url('uploads/avatars/default-avatar.jpg');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function userTrashed()
+    {
+        return $this->with('user')->onlyTrashed();
+    }
+
+    public function getCountUsersTrashedAttribute()
+    {
+        return $this->userTrashed()->get()->count();
     }
 }

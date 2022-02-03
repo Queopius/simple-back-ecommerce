@@ -22,8 +22,8 @@ class UserForm Implements Responsable
 		return view($this->view, [
             'user' => $this->user,
 			'users' => $this->user->all(),
-			//'countries' => Country::orderBy('name', 'ASC')->get(),
-	        'view'   => $request->routeIs('admin.users.create') ? 'create' : 'edit',
+            'trashed' => $this->user->countUsersTrashed,
+	        'view'   => $request->routeIs('admin.users.edit') ? 'edit' : 'create',
 	    ]);
 	}
 }

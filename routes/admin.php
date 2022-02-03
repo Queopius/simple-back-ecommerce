@@ -24,6 +24,8 @@ Route::middleware([
          * Route Users List
          */
         Route::group(['prefix' => '/users'], function () {
+            Route::get('/form', [UsersController::class, 'create'])
+                ->name('admin.users.create');
             Route::patch('/', [UsersController::class, 'store'])
                 ->name('admin.users.store');
             Route::get('/{user}/form', [UsersController::class, 'edit'])
@@ -35,9 +37,11 @@ Route::middleware([
             Route::patch('/trash/{user}', [UsersController::class, 'trash'])
                 ->name('admin.users.trash');
             Route::get('/{id}/restore', [UsersController::class, 'restore'])
-                ->name('admin.users.restore');
+                ->name('admin.users.restore')
+                ->where('id', '[0-9]+');
             Route::delete('{id}/delete', [UsersController::class, 'destroy'])
-                ->name('admin.users.destroy');
+                ->name('admin.users.destroy')
+                ->where('id', '[0-9]+');
             Route::get('/', [UsersController::class, 'index'])
                 ->name('admin.users')
                 ->middleware('cache_response');

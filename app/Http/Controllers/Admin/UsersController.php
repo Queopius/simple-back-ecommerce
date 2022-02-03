@@ -18,13 +18,18 @@ class UsersController extends BaseAdminController
             'users' => $users,
             'user' => $this->user,
             'trashed' => $this->user->countUsersTrashed,
-            'view' => $this->isRouteTrashOrIndex('admin.users.trashed'),
+            'view' => $this->hasRouteTrashOrIndex('admin.users.trashed'),
             'text_pagination' => $this->user
                     ->getTextPaginations($users, $users->total(), 'users')
         ]);
     }
 
-    /* public function store(StoreUserRequest $request)
+    public function create()
+    {
+        return $this->edit(new User());
+    }
+
+    public function store(StoreUserRequest $request)
     {
         $request->createUser();
 
@@ -42,7 +47,7 @@ class UsersController extends BaseAdminController
         $request->updateUser($user);
 
         return redirect()
-            ->route('admin.users.index')
+            ->route('admin.users')
             ->with('toast_success', trans('User updated with success!.'));
     }
 
@@ -74,5 +79,5 @@ class UsersController extends BaseAdminController
         return redirect()
             ->route('admin.users.trashed', $this->user->id)
             ->with('toast_success', 'User was destroyed with success!.');
-    } */
+    }
 }

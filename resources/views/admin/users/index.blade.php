@@ -1,11 +1,6 @@
 @extends('admin.layouts.app')
-
-{{-- @section('navigation-title', 'Contacts')
-
-@include('admin.management.contacts.partials.include._navigation') --}}
-
+@include('admin.users.partials.include._navigation')
 @section('content')
-
     @if ($users->isNotEmpty())
         <x-card-list>
             <thead>
@@ -22,9 +17,6 @@
                     <th scope="col" class="text-center px-3">
                         {{ __('global.last_name') }}
                     </th>
-                    {{-- <th scope="col" width="220" class="text-center px-3">
-                        {{ __('global.country') }}
-                    </th> --}}
                     <th scope="col" width="240" class="text-end px-3">
                         {{ __('global.created_at') }}
                     </th>
@@ -45,7 +37,4 @@
     @else
         <x-empty-text :view="$view" />
     @endif
-
-{{-- @include('admin.users.partials.include.modal.new_or_edit_user') --}}
-
 @endsection

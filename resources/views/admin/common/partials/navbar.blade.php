@@ -23,83 +23,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mt-1">
                 <li>
-                    <a href="{{ route('admin.users') }}">
-                        Users List
-                    </a>
+                    <x-links
+                        route="{{ route('admin.users') }}"
+                        title="User list"
+                    />
                 </li>
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto mt-1">
                 <!-- Authentication Links -->
-                <li class="nav-item dropdown dropstart">
-                    <a class="nav-link"
-                        href="#"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        <span>
-                            <svg class="text-gray-700"
-                                wight="26" height="26"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                            </svg>
-                        </span>
-                    </a>
-
-                    <span class="notification-dot"></span>
-
-                    <ul class="dropdown-menu me-n5 mt-5 border-0 rounded-6 bg-white shadow mt-2" style="width: 300px;">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown dropstart mr-2">
-                    <a id="navbarDropdown"
-                        class="nav-link"
-                        href="#"
-                        data-bs-auto-close="true"
-                        data-bs-display="static"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        <span>
-                            <svg class="text-gray-700"
-                                wight="26" height="26"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                        </span>
-                    </a>
-
-                    <ul class="dropdown-menu me-n5 mt-5 border-0 rounded-6 bg-white shadow mt-2" aria-labelledby="navbarDropdown" style="width: 300px;">
-                        {{-- <div class="px-3 mb-1">
-                            <span class="font-weight-bold">{{ current_user()->username }}</span>
-                            <span>{{ current_user()->email }}</span>
-                        </div> --}}
-
-                            {{-- <a class="dropdown-item mt-2" href="{{ route('profile.show', current_user()->username) }}">
-                                Tu perfil
-                            </a> --}}
-
-                        <div class="dropdown-divider"></div>
-                    </ul>
-                </li>
-
                 <li class="nav-item dropdown dropstart">
                     <a class="nav-link"
                         href="#"

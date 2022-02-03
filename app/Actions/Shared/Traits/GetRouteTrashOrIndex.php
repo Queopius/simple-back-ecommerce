@@ -12,7 +12,7 @@ trait GetRouteTrashOrIndex
      *
      * @return [type]
      */
-    public function isRouteTrashOrIndex($route)
+    public function hasRouteTrashOrIndex($route)
     {
         return request()->routeIs($route) ? 'trash' : 'index';
     }

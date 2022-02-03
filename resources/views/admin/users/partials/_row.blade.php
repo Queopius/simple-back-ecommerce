@@ -20,7 +20,6 @@
                 </div>
             </div>
         </div>
-
     </td>
     <td class="px-3 text-gray-900 text-center align-middle">
         {{ $user->first_name }}
@@ -43,19 +42,22 @@
                 <x-modal.btn-destroy :target="$user->id" />
             </x-btn-group>
             <x-modal.restore
-                title="Restore Collaborator {{ $user->username }}"
+                title="Restore User {{ $user->username }}"
                 href="{{ route('admin.users.restore', $user->id) }}"
                 :id="$user->id" />
         @else
             <x-btn-group>
                 <x-edit
-                    href="{{ route('admin.users.edit', $user->slug) }}"
+                    href="{{ route('admin.users.edit', $user) }}"
                     target="{{ $user->id }}"
                 >
                     @include('vendor.material.icons.edit')
                 </x-edit>
 
-                @if ($user->id !== 1)<x-modal.btn-delete :target="$user->id" />@else @endif
+                @if ($user->id !== 1)
+                    <x-modal.btn-delete :target="$user->id" />
+                @else
+                @endif
             </x-btn-group>
                 <x-modal.delete
                     title="Delete Collaborator {{ $user->username }}"
@@ -65,43 +67,7 @@
     </td>
 </tr>
 
-{{-- <x-modal.destroy
-    title="Destroy User {{ $user->username }}"
-    action="{{ route('admin.users.destroy', $user->id) }}"
-    :id="$user->id" /> --}}
-
-<x-modal.restore
-    title="Restore User {{ $user->username }}"
-    href="{{ route('admin.users.restore', $user->id) }}"
->
-    <div class="text-center">
-        @include('vendor.material.icons.alerts.atention')
-        <h4 class="mt-3">
-            {{ trans('Are you sure you want to restore this User?') }}
-        </h4>
-    </div>
-</x-modal.restore>
-
 <x-modal.destroy
     title="Destroy User {{ $user->username }}"
     action="{{ route('admin.users.destroy', $user->id) }}"
->
-    <div class="text-center">
-        @include('vendor.material.icons.alerts.atention')
-        <h4 class="mt-3">
-            {{ trans('Are you sure you want to destroy this User?') }}
-        </h4>
-    </div>
-</x-modal.destroy>
-
-<x-modal.delete
-    title="Delete User {{ $user->username }}"
-    action="{{ route('admin.users.trash', $user) }}"
->
-    <div class="text-center">
-        @include('vendor.material.icons.alerts.atention')
-        <h4 class="mt-3">
-            {{ trans('Are you sure you want to delete this User?') }}
-        </h4>
-    </div>
-</x-modal.delete>
+    :id="$user->id" />

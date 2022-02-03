@@ -4,12 +4,12 @@
 ])
 
 @php
-    $classes = Request::routeIs($route) ? 'text-indigo-500 ' : '';
+    $classes = Request::routeIs($route) ? 'tw-bold ' : '';
 @endphp
 
 <li class="nav-item">
-    <a href="{{ route($route) }}"
-        {{ $attributes->merge(['class' => "nav-link mb-n2 " . $classes ]) }}
+    <a href="{{ $route }}"
+        {{ $attributes->merge(['class' => "nav-link " . $classes ]) }}
     >
         {{ $slot }}
         {{ trans($title) }}
