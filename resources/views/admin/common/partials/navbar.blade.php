@@ -21,6 +21,13 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mt-1">
+                <li>
+                    <a href="{{ route('admin.users') }}">
+                        Users List
+                    </a>
+                </li>
+            </ul>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto mt-1">
                 <!-- Authentication Links -->

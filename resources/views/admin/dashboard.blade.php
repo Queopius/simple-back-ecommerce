@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('content-fluid')
+@section('content')
     <div class="container-fluid">
         <div class="row justify-content-center px-3">
             <div class="col-lg-12">
