@@ -22,12 +22,12 @@
 
     @if ($trashed <= 99)
         @if ($trashed > 0)
-        <span class="badge text-dark rounded-7 px-2 shadow-sm">
+        <span class="badge text-black-50 px-2">
             {{ $trashed }}
         </span>
         @endif
     @else
-    <span class="badge rounded-7 px-2 shadow-sm">
+    <span class="badge text-black-50 px-2">
         99+
     </span>
     @endif

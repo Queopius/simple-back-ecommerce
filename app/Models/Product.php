@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use App\Actions\Query\ProductQuery;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Prunable;
-use App\Actions\Shared\Traits\GetNumberFormat;
-use App\Actions\Shared\Traits\GetTextPaginations;
+use App\Actions\Review\Rating\CanBeRated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{SoftDeletes, Model};
+use Illuminate\Database\Eloquent\{SoftDeletes, Model, Prunable};
+use App\Actions\Shared\Traits\{GetNumberFormat, GetTextPaginations};
 
 class Product extends Model
 {
@@ -17,6 +16,7 @@ class Product extends Model
         SoftDeletes,
         GetNumberFormat,
         Prunable,
+        CanBeRated,
         GetTextPaginations;
 
     protected $guarded = [];
@@ -35,7 +35,8 @@ class Product extends Model
     public function listRelationships()
     {
         return [
-            //
+            'reviews:id,rating',
+            'category:id,name',
         ];
     }
 

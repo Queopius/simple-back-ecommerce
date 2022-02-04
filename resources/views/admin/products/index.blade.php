@@ -15,6 +15,9 @@
                         {{ __('global.description') }}
                     </th>
                     <th scope="col" class="text-center px-3">
+                        {{ __('Reviews') }}
+                    </th>
+                    <th scope="col" class="text-center px-3">
                         {{ __('global.price') }}
                     </th>
                     <th scope="col" class="text-end px-3">

@@ -20,6 +20,9 @@
         {{ $product->description }}
     </td>
     <td class="px-3 text-gray-900 text-center align-middle">
+        {{ $product->number_format_rating }}
+    </td>
+    <td class="px-3 text-gray-900 text-center align-middle">
         {{ $product->priceFormated }}
     </td>
     <td class="px-3 align-middle text-end">
