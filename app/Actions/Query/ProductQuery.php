@@ -3,9 +3,8 @@
 namespace App\Actions\Query;
 
 use App\Actions\Query\QueryBuilder;
-use App\Actions\Project\Constants\Status;
 
-class ProjectQuery extends QueryBuilder
+class ProductQuery extends QueryBuilder
 {
 	public function findByName($name)
     {

@@ -4,22 +4,14 @@ namespace Tests\Feature\User;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Events\User\Registered;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Event;
-use App\Mail\User\PleaseConfirmYourEmail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateUserTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * User can view create user.
-     *@test
-     * @return void
-     */
+   /** @test */
     function if_can_view_create_user_page()
     {
         $this->withoutExceptionHandling();
@@ -30,11 +22,7 @@ class CreateUserTest extends TestCase
             ->assertStatus(200);
     }
 
-    /**
-     * User create a user.
-     *@test
-     * @return void
-     */
+    /** @test */
     function it_can_create_a_user(): void
     {
         $this->withExceptionHandling();

@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     private $seeders = [
-        //CountrySeeder::class,
         UserSeeder::class,
+        CategorySeeder::class,
     ];
 
     /**
@@ -28,8 +28,9 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->truncateTables([
+            'products',
+            'categories',
             'users',
-            //'countries',
         ]);
 
         $progress = $this->command

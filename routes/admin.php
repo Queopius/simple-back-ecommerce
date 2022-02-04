@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     Auth\LoginController,
     AdminDashboardController,
-    UsersController
+    UsersController,
+    ProductsController
 };
 
 // Route Admin Login
@@ -23,7 +24,7 @@ Route::group([
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])
     ->name('admin.dashboard');
     /**
-     * Route Users List
+     * Route Users
      */
     Route::group(['prefix' => '/users'], function () {
         Route::get('/form', [UsersController::class, 'create'])
@@ -46,6 +47,32 @@ Route::group([
             ->where('id', '[0-9]+');
         Route::get('/', [UsersController::class, 'index'])
             ->name('admin.users')
+            ->middleware('cache_response');
+    });
+    /**
+     * Route Products
+     */
+    Route::group(['prefix' => '/products'], function () {
+        Route::get('/form', [ProductsController::class, 'create'])
+            ->name('admin.products.create');
+        Route::patch('/', [ProductsController::class, 'store'])
+            ->name('admin.products.store');
+        Route::get('/{product}/form', [ProductsController::class, 'edit'])
+            ->name('admin.products.edit');
+        Route::patch('/{product}', [ProductsController::class, 'update'])
+            ->name('admin.products.update');
+        Route::get('/trash', [ProductsController::class, 'index'])
+            ->name('admin.products.trashed');
+        Route::patch('/trash/{product}', [ProductsController::class, 'trash'])
+            ->name('admin.products.trash');
+        Route::get('/{id}/restore', [ProductsController::class, 'restore'])
+            ->name('admin.products.restore')
+            ->where('id', '[0-9]+');
+        Route::delete('{id}/delete', [ProductsController::class, 'destroy'])
+            ->name('admin.products.destroy')
+            ->where('id', '[0-9]+');
+        Route::get('/', [ProductsController::class, 'index'])
+            ->name('admin.products')
             ->middleware('cache_response');
     });
 });

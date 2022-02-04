@@ -96,7 +96,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setUsernameAttribute($username)
     {
         $this->attributes['username'] = $username;
-        $this->attributes['slug'] = Str::slug($username) . Str::uuid();
+        $this->attributes['slug'] = Str::slug($username);
     }
 
     public function setPasswordAttribute($password)

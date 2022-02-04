@@ -59,10 +59,10 @@
                 @else
                 @endif
             </x-btn-group>
-                <x-modal.delete
-                    title="Delete Collaborator {{ $user->username }}"
-                    action="{{ route('admin.users.trash', $user) }}"
-                    :id="$user->id" />
+            <x-modal.delete
+                title="Delete Collaborator {{ $user->username }}"
+                action="{{ route('admin.users.trash', $user) }}"
+                :id="$user->id" />
         @endif
     </td>
 </tr>
