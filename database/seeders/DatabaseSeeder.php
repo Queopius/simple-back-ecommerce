@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     private $seeders = [
         UserSeeder::class,
-        CategorySeeder::class,
+        ProductSeeder::class,
     ];
 
     /**
@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->truncateTables([
+            'reviews',
             'products',
             'categories',
             'users',

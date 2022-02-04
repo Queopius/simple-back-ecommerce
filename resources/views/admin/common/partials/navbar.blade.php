@@ -34,6 +34,18 @@
                         title="Product list"
                     />
                 </li>
+                <li>
+                    <x-links
+                        route="{{ route('admin.categories') }}"
+                        title="Category list"
+                    />
+                </li>
+                <li>
+                    <x-links
+                        route="#"
+                        title="Review list"
+                    />
+                </li>
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto mt-1">

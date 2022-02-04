@@ -99,4 +99,24 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function productTrashed()
+    {
+        return $this->with('product')->onlyTrashed();
+    }
+
+    public function getCountProductsTrashedAttribute()
+    {
+        return $this->productTrashed()->get()->count();
+    }
 }

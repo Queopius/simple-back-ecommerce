@@ -5,7 +5,8 @@ use App\Http\Controllers\Admin\{
     Auth\LoginController,
     AdminDashboardController,
     UsersController,
-    ProductsController
+    ProductsController,
+    CategoriesController,
 };
 
 // Route Admin Login
@@ -73,6 +74,31 @@ Route::group([
             ->where('id', '[0-9]+');
         Route::get('/', [ProductsController::class, 'index'])
             ->name('admin.products')
+            ->middleware('cache_response');
+    });/**
+     * Route Categories
+     */
+    Route::group(['prefix' => '/categories'], function () {
+        Route::get('/form', [CategoriesController::class, 'create'])
+            ->name('admin.categories.create');
+        Route::patch('/', [CategoriesController::class, 'store'])
+            ->name('admin.categories.store');
+        Route::get('/{category}/form', [CategoriesController::class, 'edit'])
+            ->name('admin.categories.edit');
+        Route::patch('/{category}', [CategoriesController::class, 'update'])
+            ->name('admin.categories.update');
+        Route::get('/trash', [CategoriesController::class, 'index'])
+            ->name('admin.categories.trashed');
+        Route::patch('/trash/{category}', [CategoriesController::class, 'trash'])
+            ->name('admin.categories.trash');
+        Route::get('/{id}/restore', [CategoriesController::class, 'restore'])
+            ->name('admin.categories.restore')
+            ->where('id', '[0-9]+');
+        Route::delete('{id}/delete', [CategoriesController::class, 'destroy'])
+            ->name('admin.categories.destroy')
+            ->where('id', '[0-9]+');
+        Route::get('/', [CategoriesController::class, 'index'])
+            ->name('admin.categories')
             ->middleware('cache_response');
     });
 });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,21 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('category_id')
+            $table->foreignId('product_id')
                     ->nullable()
-                    ->constrained();
+                    ->constrained()
+                    ->onDelete('cascade');
 
             $table->foreignId('user_id')
                     ->nullable()
                     ->constrained()
                     ->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('slug');
-            $table->string('photo')->nullable();
-            $table->mediumText('description')->nullable();
-            $table->integer('price')->nullable();
+            $table->unsignedDecimal('rating');
+            $table->text('comment')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
@@ -43,11 +41,11 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['category_id']);
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->dropForeign(['product_id']);
             $table->dropForeign(['user_id']);
         });
 
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('reviews');
     }
 }

@@ -12,7 +12,7 @@ class DestroyProductTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_completely_destroy_a_admin()
+    function it_completely_destroy_a_product()
     {
         $this->actingAsUser();
 
@@ -24,7 +24,7 @@ class DestroyProductTest extends TestCase
     }
 
     /** @test */
-    function it_cannot_destroy_a_admin_that_is_not_in_the_trash()
+    function it_cannot_destroy_a_product_that_is_not_in_the_trash()
     {
         $this->withExceptionHandling();
 
