@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use App\Actions\Query\UserQuery;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\{Hash, Storage};
@@ -137,6 +138,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Review::class);
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -150,5 +156,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getCountUsersTrashedAttribute()
     {
         return $this->userTrashed()->get()->count();
+    }
+
+    public function delete()
+    {
+        DB::transaction(function () {
+            if (parent::delete()) {
+                $this->reviews()->delete();
+            }
+        });
     }
 }

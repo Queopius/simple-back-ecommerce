@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use App\Actions\Query\ProductQuery;
 use Illuminate\Support\Facades\Storage;
 use App\Actions\Review\Rating\CanBeRated;
@@ -119,5 +120,15 @@ class Product extends Model
     public function getCountProductsTrashedAttribute()
     {
         return $this->productTrashed()->get()->count();
+    }
+
+    public function delete()
+    {
+        DB::transaction(function () {
+            if (parent::delete()) {
+                $this->reviews()->delete();
+                $this->category()->dissociate();
+            }
+        });
     }
 }
