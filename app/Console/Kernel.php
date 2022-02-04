@@ -16,6 +16,21 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        $schedule->command('model:prune', [
+            '--model' => [
+                User::class,
+                product::class,
+                Category::class,
+            ],
+            [
+                '--except' => [
+                    //Permission::class
+                ]
+            ]
+        ])->now()
+            ->subMonths(6)()
+            ->between('1:00', '2:00');
     }
 
     /**

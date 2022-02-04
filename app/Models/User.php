@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use App\Actions\Query\UserQuery;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Prunable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\{Hash, Storage};
 use App\Actions\Shared\Traits\GetTextPaginations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\{SoftDeletes, Prunable};
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -132,6 +130,11 @@ class User extends Authenticatable implements MustVerifyEmail
         }
 
         return url('uploads/avatars/default-avatar.jpg');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
     public function user()

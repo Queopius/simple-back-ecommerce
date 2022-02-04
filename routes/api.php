@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\{ShowReviewController, ShowCategoryController};
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+ */
+Route::get('/v1/category/{id}', [ShowCategoryController::class, 'show']);
+Route::get('/v1/review/{id}', [ShowReviewController::class, 'show']);
+/* Route::group(['middleware' => ['auth:sanctum']], function () {
+}); */
+
