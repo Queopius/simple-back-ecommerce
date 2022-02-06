@@ -59,6 +59,8 @@ El primer comando sirve para insertar las tablas en tu base de datos local y el 
 
 La aplicación deberia de estar funcionando.
 
+Para hacer el login tendŕas que ir a la URL `https://prueba-tecnol/admin/login`.
+
 Para acceder a la aplicación utilices el `admin@admin.com` y `password`.
 
 ## Packages utilizados
