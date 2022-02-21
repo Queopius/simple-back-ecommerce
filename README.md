@@ -1,4 +1,4 @@
-# Prueba Tecnol
+# Simple Backend Laravel Ecommerce
 
 Mini aplicación para un test.
 ## Requerimientos
@@ -59,7 +59,7 @@ El primer comando sirve para insertar las tablas en tu base de datos local y el 
 
 La aplicación deberia de estar funcionando.
 
-Para hacer el login tendŕas que ir a la URL `https://prueba-tecnol/admin/login`.
+Para hacer el login tendŕas que ir a la URL `https://.../admin/login`.
 
 Para acceder a la aplicación utilices el `admin@admin.com` y `password`.
 
@@ -77,7 +77,7 @@ Fueron realizados tests TDD (Test Driven Development) en los CRUD's y en la Auth
 
 <p align="center">
   <a href="https://github.com/Queopius">
-    <img src="docs/img/tests.png" alt="Wueopius Laravel / Developer">
+    <img src="docs/img/tests.png" alt="Queopius Laravel / Developer">
   </a>
 </p>
 
@@ -176,7 +176,7 @@ Con Postman fue realizado test con la Api.
 
 <p align="center">
   <a href="https://github.com/Queopius">
-    <img src="docs/edit-user.png" alt="Wueopius Laravel / Developer">
+    <img src="docs/edit-user.png" alt="Queopius Laravel / Developer">
   </a>
 </p>
 
@@ -184,7 +184,7 @@ Con Postman fue realizado test con la Api.
 
 <p align="center">
   <a href="https://github.com/Queopius">
-    <img src="docs/products-list.png" alt="Wueopius Laravel / Developer">
+    <img src="docs/products-list.png" alt="Queopius Laravel / Developer">
   </a>
 </p>
 
@@ -192,7 +192,7 @@ Con Postman fue realizado test con la Api.
 
 <p align="center">
   <a href="https://github.com/Queopius">
-    <img src="docs/trash.png" alt="Wueopius Laravel / Developer">
+    <img src="docs/trash.png" alt="Queopius Laravel / Developer">
   </a>
 </p>
 
@@ -200,7 +200,7 @@ Con Postman fue realizado test con la Api.
 
 <p align="center">
   <a href="https://github.com/Queopius">
-    <img src="docs/modal.png" alt="Wueopius Laravel / Developer">
+    <img src="docs/modal.png" alt="Queopius Laravel / Developer">
   </a>
 </p>
 
