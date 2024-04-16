@@ -1,7 +1,13 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "An Simple Back Laravel Ecommerce.",
+    "authors": [
+        {
+            "name": "Queopius A.S.",
+            "email": "dev.queopius@gmail.com"
+        }
+    ],
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
@@ -18,9 +24,12 @@
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "larastan/larastan": "^1.0",
+        "laravel/pint": "^1.15",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
+        "phpstan/phpstan-strict-rules": "^1.5",
         "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
