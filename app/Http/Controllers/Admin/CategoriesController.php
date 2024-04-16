@@ -19,7 +19,7 @@ class CategoriesController extends BaseAdminController
             'trashed' => $this->category->countCategoriesTrashed,
             'view' => $this->hasRouteTrashOrIndex('admin.categories.trashed'),
             'text_pagination' => $this->category
-                    ->getTextPaginations($categories, $categories->total(), 'categories')
+                    ->textPaginations($categories, $categories->total(), 'categories')
         ]);
     }
 

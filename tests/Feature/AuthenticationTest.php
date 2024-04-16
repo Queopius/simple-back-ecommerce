@@ -24,13 +24,16 @@ class AuthenticationTest extends TestCase
         $this->withoutExceptionHandling();
 
         $user = User::factory()->create([
-            'password' => bcrypt($password = 'password'),
+            'email' => "joe@gmail.com",
+            'password' => bcrypt('password'),
         ]);
 
         $response = $this->post(route('admin.login'), [
             'email' => $user->email,
-            'password' => $password,
+            'password' => 'password',
         ]);
+
+        //dd($response);
 
         $response->assertRedirect(RouteServiceProvider::ADMIN);
         $this->assertAuthenticatedAs($user, 'web');

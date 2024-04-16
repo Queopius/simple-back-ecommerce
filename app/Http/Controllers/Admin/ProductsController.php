@@ -19,7 +19,7 @@ class ProductsController extends BaseAdminController
             'trashed' => $this->product->countProductsTrashed,
             'view' => $this->hasRouteTrashOrIndex('admin.products.trashed'),
             'text_pagination' => $this->product
-                    ->getTextPaginations($products, $products->total(), 'products')
+                    ->textPaginations($products, $products->total(), 'products')
         ]);
     }
 

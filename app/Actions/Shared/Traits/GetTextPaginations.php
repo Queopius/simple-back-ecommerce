@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 trait GetTextPaginations
 {
-    public function getTextPaginations($models, $countModel, $text)
+    public function textPaginations($models, $countModel, $text)
     {
         return trans('View page'). ' ' .$this->currentAndLastPage($models). ' ' .trans('total of'). ' ' .$this->countModels($countModel, $text);
     }

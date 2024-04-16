@@ -65,7 +65,6 @@ class LoginController extends Controller
             'password' => [
                 'required', 'min:6', 'string',
                 Password::defaults(),
-                //new CurrentPassword($this->user)
             ],
         ]);
     }

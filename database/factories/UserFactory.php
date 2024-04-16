@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserFactory extends Factory
@@ -21,7 +20,7 @@ class UserFactory extends Factory
             'last_name'             => $this->faker->lastname(),
             'email'                 => $this->faker->unique()->safeEmail(),
             'email_verified_at'     => now(),
-            'password'              => Hash::make('password'), // password
+            'password'              => bcrypt('password'), // password
             'remember_token'        => Str::random(10),
             'created_at'            => now()->subDays(rand(1, 120)),
         ];

@@ -7,6 +7,7 @@ use App\Actions\Query\UserQuery;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\{Hash, Storage};
 use App\Actions\Shared\Traits\GetTextPaginations;
@@ -37,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Get the prunable model query.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function prunable()
     {
@@ -144,14 +145,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Product::class);
     }
 
-    public function user()
+    public function owner()
     {
         return $this->belongsTo(User::class);
     }
 
     public function userTrashed()
     {
-        return $this->with('user')->onlyTrashed();
+        return $this->with('owner')->onlyTrashed();
     }
 
     public function getCountUsersTrashedAttribute()

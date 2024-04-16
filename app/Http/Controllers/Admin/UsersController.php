@@ -19,7 +19,7 @@ class UsersController extends BaseAdminController
             'trashed' => $this->user->countUsersTrashed,
             'view' => $this->hasRouteTrashOrIndex('admin.users.trashed'),
             'text_pagination' => $this->user
-                    ->getTextPaginations($users, $users->total(), 'users')
+                    ->textPaginations($users, $users->total(), 'users')
         ]);
     }
 
