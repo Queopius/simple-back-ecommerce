@@ -1,6 +1,6 @@
 # Simple Backend Laravel Ecommerce
 
-Mini aplicación para un test.
+Mini aplicación.
 ## Requerimientos
 
 - PHP 8.0 en local
