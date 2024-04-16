@@ -1,3 +1,10 @@
+<p align="center">
+<a href="https://github.com/Queopius/framework/simple-back-ecommerce"><img src="https://github.com/Queopius/simple-back-ecommerce/actions/workflows/test.yml/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/Queopius/framework/simple-back-ecommerce"><img src="https://github.com/Queopius/simple-back-ecommerce/actions/workflows/pint.yml/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/Queopius/framework/simple-back-ecommerce"><img src="https://github.com/Queopius/simple-back-ecommerce/actions/workflows/phpstan.yml/badge.svg" alt="Build Status"></a>
+<!-- <a href="https://github.com/Queopius/framework/simple-back-ecommerce"><img src="https://github.com/Queopius/simple-back-ecommerce/actions/workflows/deptrac.yml/badge.svg" alt="Build Status"></a> -->
+</p> 
+
 # Simple Backend Laravel Ecommerce
 
 Mini aplicación.
