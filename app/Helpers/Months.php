@@ -1,7 +1,6 @@
 <?php
 
-if (! function_exists('months_of_year'))
-{
+if (! function_exists('months_of_year')) {
     function months_of_year()
     {
         return [

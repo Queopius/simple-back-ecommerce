@@ -11,7 +11,7 @@ class RestoreProductTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_can_restore_a_product()
+    public function it_can_restore_a_product()
     {
         $this->actingAsUser();
 

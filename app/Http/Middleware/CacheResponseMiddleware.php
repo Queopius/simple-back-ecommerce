@@ -14,8 +14,8 @@ class CacheResponseMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  Request  $request
+     * @param  Closure  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next, $ttl = null)
@@ -23,7 +23,7 @@ class CacheResponseMiddleware
         $this->ttl = $ttl ?? Carbon::now()->addDay();
 
         if (Cache::has($this->cacheKey($request))) {
-           Cache::get($this->cacheKey($request));
+            Cache::get($this->cacheKey($request));
         }
 
         return $next($request);
@@ -32,7 +32,7 @@ class CacheResponseMiddleware
     /**
      * Handle tasks after the response has been sent to the browser.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @param  \Illuminate\Http\Response  $response
      * @return void
      */

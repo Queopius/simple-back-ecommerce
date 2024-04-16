@@ -10,7 +10,7 @@ class AdminDashboardTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function admins_can_visit_the_admin_dashboard()
+    public function admins_can_visit_the_admin_dashboard()
     {
         $this->actingAsUser();
 

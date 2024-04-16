@@ -11,7 +11,7 @@ class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
     /** @test */
-    function login_user_screen_can_be_rendered()
+    public function login_user_screen_can_be_rendered()
     {
         $this->get(route('admin.login'))
             ->assertStatus(200)
@@ -19,7 +19,7 @@ class AuthenticationTest extends TestCase
     }
 
     /** @test */
-    function logging_user_as_an_admin()
+    public function logging_user_as_an_admin()
     {
         $this->withoutExceptionHandling();
 
@@ -37,7 +37,7 @@ class AuthenticationTest extends TestCase
     }
 
     /** @test */
-    function user_cannot_authenticate_with_invalid_email()
+    public function user_cannot_authenticate_with_invalid_email()
     {
         $this->withExceptionHandling();
 
@@ -66,7 +66,7 @@ class AuthenticationTest extends TestCase
     /**
      * @test
      */
-    function users_can_not_authenticate_with_invalid_password()
+    public function users_can_not_authenticate_with_invalid_password()
     {
         $this->withExceptionHandling();
 
@@ -75,9 +75,9 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->from('admin/login')->post('admin/login', [
-                'email' => $user->email,
-                'password' => 'wrong-password',
-            ])
+            'email' => $user->email,
+            'password' => 'wrong-password',
+        ])
             ->assertStatus(302)
             ->assertRedirect('admin/login')
             ->assertSessionHasErrors('email');

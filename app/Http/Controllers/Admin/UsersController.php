@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Actions\Forms\UserForm;
-use App\Http\Controllers\Admin\BaseAdminController;
 use App\Http\Requests\User\{StoreUserRequest, UpdateUserRequest};
 
 class UsersController extends BaseAdminController
@@ -26,7 +25,7 @@ class UsersController extends BaseAdminController
 
     public function create()
     {
-        return $this->edit(new User());
+        return $this->edit(new User);
     }
 
     public function store(StoreUserRequest $request)

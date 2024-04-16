@@ -1,9 +1,7 @@
 <?php
 
 use App\Logging\SimpleFormatter;
-use Monolog\Handler\NullHandler;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\SyslogUdpHandler;
+use Monolog\Handler\{NullHandler, StreamHandler, SyslogUdpHandler};
 
 return [
 

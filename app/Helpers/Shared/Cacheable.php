@@ -3,7 +3,7 @@
 namespace App\Helpers\Shared;
 
 use Closure;
-use Illuminate\Support\{Str, Arr};
+use Illuminate\Support\{Arr, Str};
 use App\Helpers\Security\Configable;
 use Illuminate\Support\Facades\{Cache, Config};
 
@@ -11,7 +11,7 @@ final class Cacheable
 {
     /**
      * @param  string  $prefix
-     * @param  \Closure  $callback
+     * @param  Closure  $callback
      * @param $values
      *
      * @return mixed

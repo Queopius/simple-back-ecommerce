@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use App\Actions\Query\CategoryQuery;
 use App\Actions\Shared\Traits\GetTextPaginations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{SoftDeletes, Model};
+use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class Category extends Model
 {

@@ -11,7 +11,7 @@ class UpdateUserTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_loads_the_form_user_page()
+    public function it_loads_the_form_user_page()
     {
         $this->actingAsUser();
 
@@ -28,7 +28,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function it_update_a_user()
+    public function it_update_a_user()
     {
         $this->withoutExceptionHandling();
 
@@ -61,7 +61,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_username_is_required()
+    public function the_username_is_required()
     {
         $this->handleValidationExceptions();
 
@@ -77,7 +77,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_email_is_required()
+    public function the_email_is_required()
     {
         $this->handleValidationExceptions();
 
@@ -94,7 +94,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_first_name_is_required()
+    public function the_first_name_is_required()
     {
         $this->handleValidationExceptions();
 
@@ -111,7 +111,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_last_name_is_required()
+    public function the_last_name_is_required()
     {
         $this->handleValidationExceptions();
 
@@ -128,7 +128,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_email_must_be_valid()
+    public function the_email_must_be_valid()
     {
         $this->handleValidationExceptions();
 
@@ -147,7 +147,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_email_must_be_unique()
+    public function the_email_must_be_unique()
     {
         $this->handleValidationExceptions();
 
@@ -169,7 +169,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_users_email_can_stay_the_same()
+    public function the_users_email_can_stay_the_same()
     {
         $this->handleValidationExceptions();
 
@@ -191,7 +191,7 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
-    function the_password_is_optional()
+    public function the_password_is_optional()
     {
         $this->handleValidationExceptions();
 

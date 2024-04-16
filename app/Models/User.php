@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\{Hash, Storage};
 use App\Actions\Shared\Traits\GetTextPaginations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\{SoftDeletes, Prunable};
+use Illuminate\Database\Eloquent\{Prunable, SoftDeletes};
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -42,8 +42,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function prunable()
     {
         return static::where(
-            'created_at', '<=', now()->subMonths(6)
-            )->whereNotNull('deleted_at');
+            'created_at',
+            '<=',
+            now()->subMonths(6)
+        )->whereNotNull('deleted_at');
     }
 
     protected function pruning()
@@ -110,8 +112,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function setAvatarAttribute($avatar)
     {
-        if ($avatar)
-        {
+        if ($avatar) {
             Storage::disk('avatars')->delete($this->avatar);
 
             $fileNameExtension = $avatar->getClientOriginalName();

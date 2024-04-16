@@ -11,7 +11,7 @@ class RestoreCategoryTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_can_restore_a_category()
+    public function it_can_restore_a_category()
     {
         $this->actingAsUser();
 

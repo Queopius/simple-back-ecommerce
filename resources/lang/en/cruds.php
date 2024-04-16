@@ -1,4 +1,5 @@
 <?php
+
 return [
     'userManagement'       => [
         'title'            => 'Users management',

@@ -11,7 +11,7 @@ class TrashUserTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_shows_the_admins_trasheds()
+    public function it_shows_the_admins_trasheds()
     {
         User::factory()->create(['username' => 'Jhon']);
         User::factory()->create(['username' => 'Jane']);
@@ -23,7 +23,7 @@ class TrashUserTest extends TestCase
     }
 
     /** @test */
-    function it_sends_a_admin_to_the_trash()
+    public function it_sends_a_admin_to_the_trash()
     {
         $this->withExceptionHandling();
         $this->actingAsUser();

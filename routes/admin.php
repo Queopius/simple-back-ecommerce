@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
-    Auth\LoginController,
     AdminDashboardController,
-    UsersController,
-    ProductsController,
+    Auth\LoginController,
     CategoriesController,
+    ProductsController,
+    UsersController,
 };
 
 // Route Admin Login
@@ -17,7 +17,7 @@ Route::post('/admin/login', [LoginController::class, 'login']);
 Route::group([
     'prefix' => 'admin',
     'middleware' => 'web'
-    ], function () {
+], function () {
     /** Route Logout */
     Route::post('/admin/logout', [LoginController::class, 'logout'])
     ->name('admin.logout');

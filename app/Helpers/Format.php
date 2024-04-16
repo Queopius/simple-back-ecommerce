@@ -8,7 +8,7 @@ class Format
 {
     public static function humanReadableSize(float $sizeInBytes): string
     {
-        $units = array('B', 'KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB');
+        $units = ['B', 'KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB'];
         $power = $sizeInBytes > 0 ? floor(log($sizeInBytes, 1024)) : 0;
 
         return number_format($sizeInBytes / (1024 ** $power), 2, '.', ',') . ' ' . $units[$power];

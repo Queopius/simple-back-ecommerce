@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Category, User, Product, Review};
+use App\Models\{Category, Product, Review, User};
 use App\Actions\Shared\Traits\{
     GetRouteTrashOrIndex
 };

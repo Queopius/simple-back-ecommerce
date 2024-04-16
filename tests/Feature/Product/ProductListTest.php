@@ -10,7 +10,7 @@ class ProductListTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function un_user_administrator_can_view_list_products_page()
+    public function un_user_administrator_can_view_list_products_page()
     {
         $this->actingAsUser();
 

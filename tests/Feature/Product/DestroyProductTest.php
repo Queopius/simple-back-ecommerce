@@ -3,8 +3,7 @@
 namespace Tests\Feature\Product;
 
 use Tests\TestCase;
-use App\Models\Product;
-use App\Models\Category;
+use App\Models\{Category, Product};
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class DestroyProductTest extends TestCase
@@ -12,7 +11,7 @@ class DestroyProductTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_completely_destroy_a_product()
+    public function it_completely_destroy_a_product()
     {
         $this->actingAsUser();
 
@@ -24,7 +23,7 @@ class DestroyProductTest extends TestCase
     }
 
     /** @test */
-    function it_cannot_destroy_a_product_that_is_not_in_the_trash()
+    public function it_cannot_destroy_a_product_that_is_not_in_the_trash()
     {
         $this->withExceptionHandling();
 
@@ -43,7 +42,7 @@ class DestroyProductTest extends TestCase
     }
 
     /** @test */
-    function it_dissociate_category_if_product_destroy()
+    public function it_dissociate_category_if_product_destroy()
     {
         $this->withoutExceptionHandling();
 

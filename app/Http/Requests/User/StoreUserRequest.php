@@ -3,10 +3,8 @@
 namespace App\Http\Requests\User;
 
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use App\Actions\User\Traits\GetUserData;
-use App\Notifications\UserHasBeenCreate;
+use Illuminate\Support\Facades\{DB, Log};
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -39,8 +37,9 @@ class StoreUserRequest extends FormRequest
             'password'              => ['nullable', Password::defaults()]
         ];
 
-        if ($this->get('avatar'))
+        if ($this->get('avatar')) {
             $rules = array_merge($rules, ['avatar' => 'nullable|image|max:2048']);
+        }
 
         return $rules;
     }

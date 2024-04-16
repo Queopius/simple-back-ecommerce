@@ -2,16 +2,15 @@
 
 namespace Tests\Feature\User;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\{RefreshDatabase};
 
 class UserListTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    function un_user_administrator_can_view_list_users_page()
+    public function un_user_administrator_can_view_list_users_page()
     {
         $this->actingAsUser();
 

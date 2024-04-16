@@ -2,11 +2,8 @@
 
 namespace App\Filters;
 
-use App\Filters\QueryFilter;
 use Illuminate\Support\Carbon;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
-use App\Actions\User\Constants\Status;
 
 class UserFilter extends QueryFilter
 {

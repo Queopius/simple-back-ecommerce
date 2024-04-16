@@ -4,10 +4,8 @@ namespace Tests;
 
 use App\Models\User;
 use Illuminate\Support\Str;
-use Tests\DetectRepeatedQueries;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
+use Illuminate\Foundation\Testing\{RefreshDatabase, TestCase as BaseTestCase};
 
 abstract class TestCase extends BaseTestCase
 {
@@ -31,7 +29,10 @@ abstract class TestCase extends BaseTestCase
     {
         $total = $this->getConnection($connection)->table($table)->count();
         $this->assertSame(0, $total, sprintf(
-            "Failed asserting the table [%s] is empty. %s %s found.", $table, $total, Str::plural('row', $total)
+            "Failed asserting the table [%s] is empty. %s %s found.",
+            $table,
+            $total,
+            Str::plural('row', $total)
         ));
     }
 
@@ -62,7 +63,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Set the currently logged in user for the application.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  UserContract  $user
      * @param  string|null  $driver
      * @return void
      */

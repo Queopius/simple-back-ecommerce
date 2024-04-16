@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Actions\Forms\ProductForm;
-use App\Http\Controllers\Admin\BaseAdminController;
 use App\Http\Requests\Product\{StoreProductRequest, UpdateProductRequest};
 
 class ProductsController extends BaseAdminController
@@ -26,7 +25,7 @@ class ProductsController extends BaseAdminController
 
     public function create()
     {
-        return $this->edit(new Product());
+        return $this->edit(new Product);
     }
 
     public function store(StoreProductRequest $request)

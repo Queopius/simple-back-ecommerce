@@ -11,7 +11,7 @@ class TrashCategoryTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_shows_the_categories_trasheds()
+    public function it_shows_the_categories_trasheds()
     {
         Category::factory()->create(['name' => 'Car']);
         Category::factory()->create(['name' => 'Truck']);
@@ -23,7 +23,7 @@ class TrashCategoryTest extends TestCase
     }
 
     /** @test */
-    function it_sends_a_category_to_the_trash()
+    public function it_sends_a_category_to_the_trash()
     {
         $this->withoutExceptionHandling();
         $this->actingAsUser();

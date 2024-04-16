@@ -11,7 +11,7 @@ class DestroyCategoryTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_completely_destroy_a_category()
+    public function it_completely_destroy_a_category()
     {
         $this->actingAsUser();
 
@@ -23,7 +23,7 @@ class DestroyCategoryTest extends TestCase
     }
 
     /** @test */
-    function it_cannot_destroy_a_category_that_is_not_in_the_trash()
+    public function it_cannot_destroy_a_category_that_is_not_in_the_trash()
     {
         $this->withExceptionHandling();
 

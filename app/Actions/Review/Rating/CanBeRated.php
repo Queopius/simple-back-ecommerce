@@ -4,7 +4,7 @@ namespace App\Actions\Review\Rating;
 
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use App\Models\{User, Review};
+use App\Models\{Review, User};
 
 trait CanBeRated
 {
@@ -58,7 +58,7 @@ trait CanBeRated
     /**
      * Fetch the rating for the given user.
      *
-     * @param  \App\Models\User $user
+     * @param  User $user
      * @return mixed
      */
     public function ratingFor(User $user)

@@ -11,8 +11,8 @@ class CreateUserTest extends TestCase
 {
     use RefreshDatabase;
 
-   /** @test */
-    function if_can_view_create_user_page()
+    /** @test */
+    public function if_can_view_create_user_page()
     {
         $this->withoutExceptionHandling();
 
@@ -23,7 +23,7 @@ class CreateUserTest extends TestCase
     }
 
     /** @test */
-    function it_can_create_a_user(): void
+    public function it_can_create_a_user(): void
     {
         $this->withExceptionHandling();
 

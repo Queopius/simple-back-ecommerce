@@ -4,15 +4,15 @@ namespace Tests\Feature\Product;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\{Product, Category};
+use App\Models\{Category, Product};
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateProductTest extends TestCase
 {
     use RefreshDatabase;
 
-   /** @test */
-    function if_can_view_create_product_page()
+    /** @test */
+    public function if_can_view_create_product_page()
     {
         $this->withoutExceptionHandling();
 
@@ -23,7 +23,7 @@ class CreateProductTest extends TestCase
     }
 
     /** @test */
-    function it_can_create_a_product(): void
+    public function it_can_create_a_product(): void
     {
         $this->withExceptionHandling();
 

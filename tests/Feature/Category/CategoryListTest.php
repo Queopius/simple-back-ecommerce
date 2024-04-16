@@ -10,7 +10,7 @@ class CategoryListTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function un_user_administrator_can_view_list_categories_page()
+    public function un_user_administrator_can_view_list_categories_page()
     {
         $this->actingAsUser();
 

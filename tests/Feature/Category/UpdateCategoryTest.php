@@ -11,7 +11,7 @@ class UpdateCategoryTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_loads_the_form_caategory_page()
+    public function it_loads_the_form_caategory_page()
     {
         $this->actingAsUser();
 
@@ -27,7 +27,7 @@ class UpdateCategoryTest extends TestCase
     }
 
     /** @test */
-    function it_update_a_category()
+    public function it_update_a_category()
     {
         $this->withoutExceptionHandling();
 
@@ -47,7 +47,7 @@ class UpdateCategoryTest extends TestCase
     }
 
     /** @test */
-    function the_name_is_required()
+    public function the_name_is_required()
     {
         $this->handleValidationExceptions();
 

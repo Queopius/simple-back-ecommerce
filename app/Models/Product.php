@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
 use App\Actions\Query\ProductQuery;
-use Illuminate\Support\Facades\Storage;
 use App\Actions\Review\Rating\CanBeRated;
+use Illuminate\Support\Facades\{DB, Storage};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{SoftDeletes, Model, Prunable};
+use Illuminate\Database\Eloquent\{Model, Prunable, SoftDeletes};
 use App\Actions\Shared\Traits\{GetNumberFormat, GetTextPaginations};
 
 class Product extends Model
@@ -83,8 +82,7 @@ class Product extends Model
 
     public function setPhotoAttribute($photo)
     {
-        if ($photo)
-        {
+        if ($photo) {
             Storage::disk('photos')->delete($this->photo);
 
             $fileNameExtension = $photo->getClientOriginalName();

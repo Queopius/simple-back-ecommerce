@@ -4,8 +4,7 @@ namespace App\Http\Requests\Product;
 
 use App\Models\Product;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\{DB, Log};
 use Illuminate\Foundation\Http\FormRequest;
 use App\Actions\Product\Traits\GetProductData;
 
@@ -40,8 +39,9 @@ class StoreProductRequest extends FormRequest
             ],
         ];
 
-        if ($this->get('photo'))
+        if ($this->get('photo')) {
             $rules = array_merge($rules, ['photo' => 'nullable|image|max:2048']);
+        }
 
         return $rules;
     }

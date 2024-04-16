@@ -2,9 +2,6 @@
 
 namespace App\Filters;
 
-use App\Filters\QueryFilter;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class CategoryFilter extends QueryFilter
 {

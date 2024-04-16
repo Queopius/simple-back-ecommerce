@@ -11,7 +11,7 @@ class DestroyUserTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_completely_destroy_a_admin()
+    public function it_completely_destroy_a_admin()
     {
         $this->actingAsUser();
 
@@ -23,7 +23,7 @@ class DestroyUserTest extends TestCase
     }
 
     /** @test */
-    function it_cannot_destroy_a_admin_that_is_not_in_the_trash()
+    public function it_cannot_destroy_a_admin_that_is_not_in_the_trash()
     {
         $this->withExceptionHandling();
 

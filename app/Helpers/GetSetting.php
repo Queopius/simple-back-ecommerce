@@ -10,8 +10,8 @@ if (!function_exists('setting')) {
      *
      * @return string
      */
-    function setting($key, $default=null)
+    function setting($key, $default = null)
     {
-        return \App\Models\Core\Setting::get($key, $default);
+        return App\Models\Core\Setting::get($key, $default);
     }
 }

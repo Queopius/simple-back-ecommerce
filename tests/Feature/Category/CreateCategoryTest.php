@@ -3,16 +3,15 @@
 namespace Tests\Feature\Category;
 
 use Tests\TestCase;
-use App\Models\User;
-use App\Models\Category;
+use App\Models\{Category, User};
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateCategoryTest extends TestCase
 {
     use RefreshDatabase;
 
-   /** @test */
-    function if_can_view_create_category_page()
+    /** @test */
+    public function if_can_view_create_category_page()
     {
         $this->withoutExceptionHandling();
 
@@ -23,7 +22,7 @@ class CreateCategoryTest extends TestCase
     }
 
     /** @test */
-    function it_can_create_a_category(): void
+    public function it_can_create_a_category(): void
     {
         $this->withExceptionHandling();
 

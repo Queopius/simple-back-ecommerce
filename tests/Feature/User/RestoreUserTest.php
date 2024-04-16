@@ -11,7 +11,7 @@ class RestoreUserTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_can_restore_a_admin()
+    public function it_can_restore_a_admin()
     {
         $this->actingAsUser();
 

@@ -11,7 +11,7 @@ class TrashProductTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_shows_the_products_trasheds()
+    public function it_shows_the_products_trasheds()
     {
         Product::factory()->create(['name' => 'Car']);
         Product::factory()->create(['name' => 'Truck']);
@@ -23,7 +23,7 @@ class TrashProductTest extends TestCase
     }
 
     /** @test */
-    function it_sends_a_product_to_the_trash()
+    public function it_sends_a_product_to_the_trash()
     {
         $this->withoutExceptionHandling();
         $this->actingAsUser();

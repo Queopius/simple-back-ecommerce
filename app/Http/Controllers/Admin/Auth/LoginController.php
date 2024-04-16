@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Http\{JsonResponse, Request};
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -51,7 +50,7 @@ class LoginController extends Controller
     /**
      * Validate the user login request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -105,8 +104,8 @@ class LoginController extends Controller
     /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     * @param  Request  $request
+     * @return \Illuminate\Http\RedirectResponse|JsonResponse
      */
     public function logout(Request $request)
     {
@@ -124,7 +123,7 @@ class LoginController extends Controller
     /**
      * The user has logged out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @return mixed
      */
     protected function loggedOut(Request $request)

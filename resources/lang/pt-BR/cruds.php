@@ -1,13 +1,14 @@
 <?php
+
 return [
-    'userManagement'       => [ 
+    'userManagement'       => [
         'title'            => 'Users management',
         'title_singular'   => 'User management',
     ],
 
     'adminManagement'      => [
         'title'            => 'Admins management',
-        'title_singular'   => 'Admin management', 
+        'title_singular'   => 'Admin management',
     ],
 
     'roleManagement'       => [
@@ -39,7 +40,7 @@ return [
             'country'            => 'Country',
             'country_helper'     => '',
             'biograph'           => 'Biograph',
-            'biograph_helper'    => '', 
+            'biograph_helper'    => '',
             'training'           => 'Training',
             'training_helper'    => '',
         ],
@@ -83,9 +84,9 @@ return [
             'permissions'        => 'Permissions',
             'permissions_helper' => '',
             'addpermission'      => 'Add Permission',
-            'addpermission_helper'=> '',
+            'addpermission_helper' => '',
             'permissionlist'     => 'Permission List',
-            'permissionlist_helper'=> '',
+            'permissionlist_helper' => '',
             'created_at'         => 'Created at',
             'created_at_helper'  => '',
             'updated_at'         => 'Updated at',
@@ -127,7 +128,7 @@ return [
     ],
 
     'admin'           => [
-        'title'          => 'Admins', 
+        'title'          => 'Admins',
         'title_singular' => 'Admin',
         'fields'         => [
             'id'                       => 'ID',

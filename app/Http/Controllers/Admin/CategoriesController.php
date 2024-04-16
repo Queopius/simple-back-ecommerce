@@ -25,7 +25,7 @@ class CategoriesController extends BaseAdminController
 
     public function create()
     {
-        return $this->edit(new Category());
+        return $this->edit(new Category);
     }
 
     public function store(StoreCategoryRequest $request)

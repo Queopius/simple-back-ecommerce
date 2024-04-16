@@ -1,4 +1,5 @@
 <?php
+
 return [
     'clear'                                => 'Clear',
     'done'                                 => 'Done',

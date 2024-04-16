@@ -37,8 +37,9 @@ class UpdateUserRequest extends FormRequest
             'password'              => ['nullable', Password::defaults()]
         ];
 
-        if ($this->get('avatar'))
+        if ($this->get('avatar')) {
             $rules = array_merge($rules, ['avatar' => 'nullable|image|max:2048']);
+        }
 
         return $rules;
     }

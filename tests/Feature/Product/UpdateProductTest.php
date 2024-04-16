@@ -3,7 +3,7 @@
 namespace Tests\Feature\Product;
 
 use Tests\TestCase;
-use App\Models\{Product, Category};
+use App\Models\{Category, Product};
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UpdateProductTest extends TestCase
@@ -11,7 +11,7 @@ class UpdateProductTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_loads_the_form_product_page()
+    public function it_loads_the_form_product_page()
     {
         $this->actingAsUser();
 
@@ -28,7 +28,7 @@ class UpdateProductTest extends TestCase
     }
 
     /** @test */
-    function it_update_a_product()
+    public function it_update_a_product()
     {
         $this->withExceptionHandling();
 
@@ -47,7 +47,7 @@ class UpdateProductTest extends TestCase
     }
 
     /** @test */
-    function the_name_is_required()
+    public function the_name_is_required()
     {
         $this->handleValidationExceptions();
 
@@ -63,7 +63,7 @@ class UpdateProductTest extends TestCase
     }
 
     /** @test */
-    function the_price_is_required()
+    public function the_price_is_required()
     {
         $this->handleValidationExceptions();
 

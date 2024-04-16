@@ -2,14 +2,13 @@
 
 use Illuminate\Support\Facades\Auth;
 
-if (! function_exists('current_user'))
-{
+if (! function_exists('current_user')) {
     function current_user()
     {
-    	if (Auth::guard('web')->check()) {
-        	return Auth::guard('web')->user();
-    	}
+        if (Auth::guard('web')->check()) {
+            return Auth::guard('web')->user();
+        }
 
-    	return auth()->user();
+        return auth()->user();
     }
 }

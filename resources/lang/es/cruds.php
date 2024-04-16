@@ -1,4 +1,5 @@
 <?php
+
 return [
     'adminManagement' => [
         'title'          => 'Gestión de administradores',
@@ -90,9 +91,9 @@ return [
             'updated_at_helper' => '',
             'deleted_at'        => 'Eliminado en',
             'deleted_at_helper' => '',
-        ], 
+        ],
     ],
-     'role'           => [
+    'role'           => [
         'title'          => 'Roles',
         'title_singular' => 'Rol',
         'fields'         => [
@@ -135,7 +136,7 @@ return [
             'country'            => 'País',
             'country_helper'     => '',
             'biograph'           => 'Biografia',
-            'biograph_helper'    => '', 
+            'biograph_helper'    => '',
             'training'           => 'Formación',
             'training_helper'    => '',
         ],
